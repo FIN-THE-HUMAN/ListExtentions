@@ -425,5 +425,13 @@ namespace ListExtentions
         {
             foreach (var e in enumerable) action(e);
         }
+        
+        public static string ToString<T>(this List<T> list, Func<T, string> func)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var e in list)
+                sb.Append(func(e));
+            return sb.ToString();  
+        }
     }
 }
